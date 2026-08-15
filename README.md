@@ -13,7 +13,7 @@ A lightweight and flexible system for local and remote backups (databases and fi
 * **nginx/** - Nginx configurations and protected spaces
 
 * **ssh/** - SSH keys for remote host access
-
+* **scripts** - directory containing scripts. It is automatically baked in the image during build. And scripts are run directly from the container itself. If you made changes to those, you should rebuild the imige for the changes to take effect.
 ---
 
 ## Requirements
@@ -32,6 +32,19 @@ cp configs/example.env configs/vagrant.env
 * Fill in the required database parameters and remote SFTP/SSH storage settings in your created .env file.
 
 * Place the corresponding SSH keys into the ssh/ directory and set the proper security permissions (e.g., chmod 600 for private keys).
+* build the image for the executing container:
+```bash
+docker build -t petar1v/docker-baas:1.0
+```
+
+* make new user and password for the web
+```bash
+make secure user=admin pass=password
+```
+* up the web server to serve your backups
+```bash
+docker compose up -d
+```
 
 ---
 
