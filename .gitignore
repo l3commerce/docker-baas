@@ -1,0 +1,9 @@
+.idea
+.vscode/
+/ssh/*
+!/ssh/README.md
+/backups/*
+!/backups/README.md
+/configs/*
+!/configs/example.env
+/nginx/conf.d/.htpasswd
